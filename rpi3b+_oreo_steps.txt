@@ -19,3 +19,4 @@ ARCH=arm scripts/kconfig/merge_config.sh arch/arm/configs/bcm2709_defconfig kern
 
 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make zImage
 
+test
