@@ -1,2 +1,2 @@
-# git-how-to
+# git-how-to for master branch
 learning how to git things

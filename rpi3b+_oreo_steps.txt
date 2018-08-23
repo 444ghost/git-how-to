@@ -19,4 +19,11 @@ ARCH=arm scripts/kconfig/merge_config.sh arch/arm/configs/bcm2709_defconfig kern
 
 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make zImage
 
-test
+ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make dtbs
+
+// applying the patches found at https://github.com/android-rpi/device_brcm_rpi3/wiki/Oreo-:-patch-framework-source
+
+cd ~/aosp
+source build/envsetup.sh
+lunch rpi3-eng
+make ramdisk systemimage
