@@ -1,7 +1,11 @@
 git init // initialize local git repository
-git add <file> // add files to index
+git add <file> // track files to index
 git status // check status of working tree
 git commit // commit changes in index
 git push //to remote repository
 git pull // pull latest from remote repository
 git clone // clone repository into a new directory
+git rm --cached <file> // untrack files
+git commit -m "log" // commit
+git push -u origin master
+git push --mirror https://github.com/444ghost/git-how-to.git
