@@ -21,6 +21,8 @@ ARCH=arm scripts/kconfig/merge_config.sh arch/arm/configs/bcm2709_defconfig kern
 
 // processors BCM2835, BCM2836, BCM2837 for rpi b+, rpi2 b, rpi3 b
 // packages or hardware BCM2708, BCM2709, BCM2709
+// https://www.raspberrypistarterkits.com/comparison/raspberry-pi-3-pi-2-pi-b-benchmark-review/
+
 
 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make zImage
 
