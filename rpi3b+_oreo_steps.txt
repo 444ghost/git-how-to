@@ -1,4 +1,4 @@
-// https://github.com/444ghost
+// https://github.com/444ghostRCH=arm CROSS_COMPILE=arm-linux-gnueabihf- make dtbs
 
 sudo apt-get install openjdk-8-jdk
 
