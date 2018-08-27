@@ -42,22 +42,24 @@ dd if=/dev/zero of=image.img iflag=fullblock bs=1M count=8000 && sync // make a 
 sudo apt-get install tree
 tree
 losetup
-sudo losetup loop1 image.img // losetup gives the list of attached lookback devices, if it doesn't give out, then loop0 I think actually
+sudo losetup loop0 image.img // losetup gives the list of attached lookback devices, if it doesn't give out, then loop0 I think actually
 losetup
 sudo apt-get install gparted
-sudo -H gparted /dev/lopo1 // choose msdos
+sudo -H gparted /dev/loop0 // choose msdos
 			   // first partition 512M as fat16 "boot" 
  			   // second partition 512M as ex4 "system"	
 			   // third partition for the rest as ex4 "userdata"
 			   // right click the first partition, check "bootable"
-sudo dd if=out/target/product/rpi3/system.img of=/dev/loop1p2 bs=1M
+sudo dd if=out/target/product/rpi3/system.img of=/dev/loop0p2 bs=1M
 sudo fdisk -l
-mkdir temp
-sudo mount /dev/loop1p1 temp/
-sudo cp device/brcm/rpi3/boot/* temp/
-sudo cp kernel/rpi/arch/arm/boot/zImage temp/
-sudo cp kernel/rpi/arch/arm/boot/dts/bcm2710-rpi-3-b-plus.dtb temp/
-sudo cp kernel/rpi/arch/arm/boot/dts/overlays/vc4-kms-v3d.dtbo temp/
-sudo cp out/target/product/rpi3/ramdisk.img temp/
+//mkdir temp
+//sudo mount /dev/loop0p1 temp/
+sudo cp device/brcm/rpi3/boot/* /media/sung/BOOT
+sudo cp kernel/rpi/arch/arm/boot/zImage /media/sung/BOOT
+sudo cp kernel/rpi/arch/arm/boot/dts/bcm2710-rpi-3-b-plus.dtb /media/sung/BOOT
+sudo cp kernel/rpi/arch/arm/boot/dts/overlays/vc4-kms-v3d.dtbo /media/sung/BOOT/overlays
+// make sure to create a "overlays" directory and copy the *.dtbo file to it
+sudo cp out/target/product/rpi3/ramdisk.img /media/sung/BOOT
+sudo losetup -d /dev/loop0
 
 
