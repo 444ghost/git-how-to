@@ -1,0 +1,28 @@
+//Download an apk file
+
+mkdir ~/aosp/packages/apps/MyTerminal
+vi ~/aosp/packages/apps/MyTerminal/Android.mk
+
+// add the following codes in the Android.mk file
+
+LOCAL_PATH:= $(call my-dir)
+include $(CLEAR_VARS)
+LOCAL_MODULE_TAGS := optional
+LOCAL_MODULE := MyTerminal
+LOCAL_SRC_FILES := $(LOCAL_MODULE).apk
+LOCAL_MODULE_CLASS := APPS
+LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
+LOCAL_CERTIFICATE := PRESIGNED
+include $(BUILD_PREBUILT)
+
+// save and exit
+
+vi ~/aosp/device/brcm/rpi3/rpi3.mk
+
+// add the following codes
+
+PRODUCT_PACKAGES += \
+    Launcher2 \
+    Settings \
+    MyTerminal
+
