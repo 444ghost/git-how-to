@@ -46,7 +46,7 @@ sudo losetup loop0 image.img // losetup gives the list of attached lookback devi
 losetup
 sudo apt-get install gparted
 sudo -H gparted /dev/loop0 // choose msdos
-			   // first partition 512M as fat16 "boot" 
+			   // first partition 512M as fat32 "boot" 
  			   // second partition 512M as ex4 "system"	
 			   // third partition for the rest as ex4 "userdata"
 			   // right click the first partition, check "bootable"
