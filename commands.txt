@@ -9,6 +9,11 @@ git rm --cached <file> // untrack files
 git commit -m "log" // commit
 git push -u origin master
 git push --mirror https://github.com/444ghost/git-how-to.git
-
-
 // http://rogerdudler.github.io/git-guide/
+
+
+
+
+git remote rm origin // remove git base
+git remote add origin https://github.com/444ghost/kaldi_digits.git
+
